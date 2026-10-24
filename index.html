@@ -3,53 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000">
-    <meta name="description" content="Explore consoles clássicos e reviva a história dos videogames com a Ray Retro.">
+    <meta name="theme-color" content="#080b0a">
+    <meta name="description" content="Ray Retro: consoles clássicos, nostalgia gamer e ofertas especiais.">
     <title>Ray Retro | Consoles clássicos</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <header class="site-header">
-        <a class="brand" href="#inicio" aria-label="Ray Retro - Início">
-            <span class="brand-ray">Ray</span><span class="brand-retro">Retro</span>
-        </a>
+        <a class="brand" href="#inicio"><span>Ray</span><strong>Retro</strong></a>
 
-        <button class="menu-toggle" id="menu-toggle" type="button"
-                aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" type="button">☰</button>
 
-        <nav id="main-nav" class="main-nav" aria-label="Menu principal">
+        <nav class="main-nav" id="main-nav">
             <a href="#inicio">Início</a>
             <a href="#consoles">Consoles</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
         </nav>
 
-        <button class="cart-trigger" id="open-cart" type="button" aria-label="Abrir carrinho">
-            <span aria-hidden="true">🛒</span>
-            <span class="cart-trigger-label">Carrinho</span>
-            <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        <button class="cart-trigger" id="open-cart" type="button">
+            🛒 Carrinho <span class="cart-count" id="cart-count">0</span>
         </button>
     </header>
 
     <main>
         <section class="inicio" id="inicio">
             <div class="hero-content">
-                <p class="eyebrow">A nostalgia mora aqui</p>
+                <p class="eyebrow">🎮 Sua viagem começa aqui</p>
                 <h1>Consoles que <span>marcaram época</span></h1>
                 <p class="hero-description">
-                    Encontre consoles antigos e reviva os melhores momentos
-                    dos videogames clássicos.
+                    Reviva os grandes momentos dos videogames com consoles clássicos,
+                    nostalgia e diversão em cada geração.
                 </p>
-                <a class="button button-primary" href="#consoles">Explorar consoles <span aria-hidden="true">↓</span></a>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#consoles">Explorar consoles ↓</a>
+                    <a class="button button-secondary" href="#ofertas">Ver ofertas ↗</a>
+                </div>
             </div>
+
             <div class="hero-decoration" aria-hidden="true">
                 <span class="pixel pixel-one"></span>
                 <span class="pixel pixel-two"></span>
                 <span class="pixel pixel-three"></span>
-                <span class="hero-symbol">RETRO<br><strong>GAMING</strong></span>
+                <div class="hero-symbol">RETRO<strong>GAMING</strong></div>
+            </div>
+        </section>
+
+        <section class="promo-strip" id="ofertas">
+            <div>
+                <span class="promo-kicker">LEVEL UP NA NOSTALGIA</span>
+                <h2>Seu próximo clássico está aqui.</h2>
+                <p>Explore os favoritos dos gamers e encontre seu próximo console.</p>
+            </div>
+            <a class="button button-primary" href="#consoles">Ver coleção →</a>
+        </section>
+
+        <section class="featured-section section-wrap">
+            <div class="featured-heading">
+                <div>
+                    <p class="eyebrow">Os queridinhos da comunidade</p>
+                    <h2>Clássicos em destaque</h2>
+                </div>
+                <a class="text-link" href="#consoles">Ver todos →</a>
+            </div>
+
+            <div class="featured-pills">
+                <a href="#consoles" class="featured-pill"><span>★</span><div><strong>PlayStation 2</strong><small>Um favorito de gerações</small></div></a>
+                <a href="#consoles" class="featured-pill"><span>▣</span><div><strong>Super Nintendo</strong><small>O charme dos anos 90</small></div></a>
+                <a href="#consoles" class="featured-pill"><span>▤</span><div><strong>Game Boy</strong><small>Clássico portátil</small></div></a>
             </div>
         </section>
 
@@ -60,11 +82,11 @@
                 <p>Encontre o seu próximo item de coleção.</p>
             </div>
 
-            <div class="catalog-tools" aria-label="Ferramentas de busca e filtro">
+            <div class="catalog-tools">
                 <label class="search-box">
-                    <span aria-hidden="true">⌕</span>
-                    <input id="product-search" type="search" placeholder="Buscar console..." autocomplete="off" aria-label="Buscar produtos pelo nome ou descrição">
-                    <button id="clear-search" class="clear-search" type="button" aria-label="Limpar busca" hidden>×</button>
+                    <span>⌕</span>
+                    <input id="product-search" type="search" placeholder="Buscar console..." aria-label="Buscar consoles">
+                    <button id="clear-search" type="button" hidden>×</button>
                 </label>
 
                 <label class="filter-field">
@@ -100,111 +122,44 @@
                 </label>
             </div>
 
-            <p class="results-count" id="results-count" aria-live="polite"></p>
+            <p class="results-count" id="results-count"></p>
 
             <div class="cards" id="product-grid">
                 <article class="card" data-id="ps1" data-name="PlayStation 1" data-description="Console clássico da Sony." data-category="sony" data-portable="nao" data-price="199">
-                    <div class="product-image-wrap">
-                        <img src="imagen/ps1.jpg" alt="Console PlayStation 1" loading="lazy">
-                        <span class="product-tag">Clássico</span>
-                    </div>
-                    <div class="card-content">
-                        <p class="product-category">Sony · Console</p>
-                        <h3>PlayStation 1</h3>
-                        <p class="product-description">Console clássico da Sony.</p>
-                        <div class="product-bottom">
-                            <span class="price">R$ 199,00</span>
-                            <button class="add-to-cart" type="button" data-add="ps1">Adicionar <span aria-hidden="true">+</span></button>
-                        </div>
-                    </div>
+                    <div class="product-image-wrap"><img src="imagen/ps1.jpg" alt="PlayStation 1" loading="lazy"><span class="product-tag">Clássico</span></div>
+                    <div class="card-content"><p class="product-category">Sony · Console</p><h3>PlayStation 1</h3><p class="product-description">Console clássico da Sony.</p><div class="product-bottom"><span class="price">R$ 199,00</span><button class="add-to-cart" data-add="ps1">Adicionar +</button></div></div>
                 </article>
 
                 <article class="card" data-id="ps2" data-name="PlayStation 2" data-description="Um dos consoles mais famosos." data-category="sony" data-portable="nao" data-price="450">
-                    <div class="product-image-wrap">
-                        <img src="imagen/ps2.jpg" alt="Console PlayStation 2" loading="lazy">
-                        <span class="product-tag">Favorito</span>
-                    </div>
-                    <div class="card-content">
-                        <p class="product-category">Sony · Console</p>
-                        <h3>PlayStation 2</h3>
-                        <p class="product-description">Um dos consoles mais famosos.</p>
-                        <div class="product-bottom">
-                            <span class="price">R$ 450,00</span>
-                            <button class="add-to-cart" type="button" data-add="ps2">Adicionar <span aria-hidden="true">+</span></button>
-                        </div>
-                    </div>
+                    <div class="product-image-wrap"><img src="imagen/ps2.jpg" alt="PlayStation 2" loading="lazy"><span class="product-tag">Mais procurado</span></div>
+                    <div class="card-content"><p class="product-category">Sony · Console</p><h3>PlayStation 2</h3><p class="product-description">Um dos consoles mais famosos.</p><div class="product-bottom"><span class="price">R$ 450,00</span><button class="add-to-cart" data-add="ps2">Adicionar +</button></div></div>
                 </article>
 
                 <article class="card" data-id="snes" data-name="Super Nintendo" data-description="Clássico dos anos 90." data-category="nintendo" data-portable="nao" data-price="799">
-                    <div class="product-image-wrap">
-                        <img src="imagen/supernintendo.jpg" alt="Console Super Nintendo" loading="lazy">
-                        <span class="product-tag">Anos 90</span>
-                    </div>
-                    <div class="card-content">
-                        <p class="product-category">Nintendo · Console</p>
-                        <h3>Super Nintendo</h3>
-                        <p class="product-description">Clássico dos anos 90.</p>
-                        <div class="product-bottom">
-                            <span class="price">R$ 799,00</span>
-                            <button class="add-to-cart" type="button" data-add="snes">Adicionar <span aria-hidden="true">+</span></button>
-                        </div>
-                    </div>
+                    <div class="product-image-wrap"><img src="imagen/supernintendo.jpg" alt="Super Nintendo" loading="lazy"><span class="product-tag">Lenda dos 90</span></div>
+                    <div class="card-content"><p class="product-category">Nintendo · Console</p><h3>Super Nintendo</h3><p class="product-description">Clássico dos anos 90.</p><div class="product-bottom"><span class="price">R$ 799,00</span><button class="add-to-cart" data-add="snes">Adicionar +</button></div></div>
                 </article>
 
                 <article class="card" data-id="gameboy" data-name="Game Boy" data-description="O portátil que fez história." data-category="nintendo" data-portable="sim" data-price="1399">
-                    <div class="product-image-wrap">
-                        <img src="imagen/gameboy.jpg" alt="Videogame portátil Game Boy" loading="lazy">
-                        <span class="product-tag">Portátil</span>
-                    </div>
-                    <div class="card-content">
-                        <p class="product-category">Nintendo · Portátil</p>
-                        <h3>Game Boy</h3>
-                        <p class="product-description">O portátil que fez história.</p>
-                        <div class="product-bottom">
-                            <span class="price">R$ 1.399,00</span>
-                            <button class="add-to-cart" type="button" data-add="gameboy">Adicionar <span aria-hidden="true">+</span></button>
-                        </div>
-                    </div>
+                    <div class="product-image-wrap"><img src="imagen/gameboy.jpg" alt="Game Boy" loading="lazy"><span class="product-tag">Portátil</span></div>
+                    <div class="card-content"><p class="product-category">Nintendo · Portátil</p><h3>Game Boy</h3><p class="product-description">O portátil que fez história.</p><div class="product-bottom"><span class="price">R$ 1.399,00</span><button class="add-to-cart" data-add="gameboy">Adicionar +</button></div></div>
                 </article>
 
-                <article class="card" data-id="arcade" data-name="Fliperama" data-description="Clássico para os fãs de jogos retrô." data-category="arcade" data-portable="nao" data-price="2999">
-                    <div class="product-image-wrap">
-                        <img src="imagen/fiplerama.jpg" alt="Máquina de fliperama retrô" loading="lazy">
-                        <span class="product-tag">Arcade</span>
-                    </div>
-                    <div class="card-content">
-                        <p class="product-category">Arcade · Fliperama</p>
-                        <h3>Fliperama</h3>
-                        <p class="product-description">Clássico para os fãs de jogos retrô.</p>
-                        <div class="product-bottom">
-                            <span class="price">R$ 2.999,00</span>
-                            <button class="add-to-cart" type="button" data-add="arcade">Adicionar <span aria-hidden="true">+</span></button>
-                        </div>
-                    </div>
+                <article class="card" data-id="arcade" data-name="Fliperama" data-description="Clássico para fãs de jogos retrô." data-category="arcade" data-portable="nao" data-price="2999">
+                    <div class="product-image-wrap"><img src="imagen/fiplerama.jpg" alt="Fliperama retrô" loading="lazy"><span class="product-tag">Arcade</span></div>
+                    <div class="card-content"><p class="product-category">Arcade · Fliperama</p><h3>Fliperama</h3><p class="product-description">Clássico para os fãs de jogos retrô.</p><div class="product-bottom"><span class="price">R$ 2.999,00</span><button class="add-to-cart" data-add="arcade">Adicionar +</button></div></div>
                 </article>
 
                 <article class="card" data-id="psp" data-name="PSP" data-description="O portátil clássico da Sony." data-category="sony" data-portable="sim" data-price="599">
-                    <div class="product-image-wrap">
-                        <img src="imagen/psp.jpg" alt="Videogame portátil PSP" loading="lazy">
-                        <span class="product-tag">Portátil</span>
-                    </div>
-                    <div class="card-content">
-                        <p class="product-category">Sony · Portátil</p>
-                        <h3>PSP</h3>
-                        <p class="product-description">O portátil clássico da Sony.</p>
-                        <div class="product-bottom">
-                            <span class="price">R$ 599,00</span>
-                            <button class="add-to-cart" type="button" data-add="psp">Adicionar <span aria-hidden="true">+</span></button>
-                        </div>
-                    </div>
+                    <div class="product-image-wrap"><img src="imagen/psp.jpg" alt="PSP" loading="lazy"><span class="product-tag">Portátil</span></div>
+                    <div class="card-content"><p class="product-category">Sony · Portátil</p><h3>PSP</h3><p class="product-description">O portátil clássico da Sony.</p><div class="product-bottom"><span class="price">R$ 599,00</span><button class="add-to-cart" data-add="psp">Adicionar +</button></div></div>
                 </article>
             </div>
 
             <div class="empty-results" id="empty-results" hidden>
-                <span aria-hidden="true">⌕</span>
                 <h3>Nenhum console encontrado</h3>
                 <p>Tente mudar a busca ou os filtros.</p>
-                <button class="button button-secondary" id="reset-filters" type="button">Limpar filtros</button>
+                <button class="button button-secondary" id="reset-filters">Limpar filtros</button>
             </div>
         </section>
 
@@ -213,34 +168,25 @@
                 <p class="eyebrow">Nossa paixão</p>
                 <h2>Mais que consoles.<br><span>Memórias que continuam.</span></h2>
                 <p>A Ray Retro celebra a história dos videogames e a nostalgia de cada geração. Explore os clássicos, encontre seu favorito e mantenha a diversão viva.</p>
-                <a class="text-link" href="#consoles">Encontrar meu clássico <span aria-hidden="true">→</span></a>
+                <a class="text-link" href="#consoles">Encontrar meu clássico →</a>
             </div>
         </section>
     </main>
 
-    <footer id="contato">
-        <a class="brand footer-brand" href="#inicio"><span class="brand-ray">Ray</span><span class="brand-retro">Retro</span></a>
-        <p>Uma viagem pelos clássicos dos videogames.</p>
-        <p class="copyright">© <span id="current-year">2026</span> Ray Retro. Todos os direitos reservados.</p>
+    <footer class="site-footer" id="contato">
+        <div class="footer-main">
+            <div class="footer-about"><a class="brand footer-brand" href="#inicio"><span>Ray</span><strong>Retro</strong></a><p>Uma viagem pelos clássicos dos videogames. A nostalgia nunca sai de moda.</p></div>
+            <div class="footer-links"><h3>Navegação</h3><a href="#inicio">Início</a><a href="#consoles">Consoles</a><a href="#ofertas">Destaques</a><a href="#sobre">Sobre a Ray Retro</a></div>
+            <div class="footer-links"><h3>Atendimento</h3><a href="#consoles">Consultar produtos</a><a href="#contato">Contato</a><p class="footer-small">Disponibilidade e condições devem ser confirmadas no atendimento.</p></div>
+        </div>
+        <div class="footer-bottom"><p>© <span id="current-year">2026</span> Ray Retro. Todos os direitos reservados.</p><a href="#inicio" class="back-top">↑ Voltar ao topo</a></div>
     </footer>
 
     <div class="cart-overlay" id="cart-overlay" hidden></div>
     <aside class="cart-panel" id="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
-        <div class="cart-header">
-            <div>
-                <p class="eyebrow">Sua seleção</p>
-                <h2 id="cart-title">Carrinho</h2>
-            </div>
-            <button class="icon-button" id="close-cart" type="button" aria-label="Fechar carrinho">×</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <p class="cart-empty">Seu carrinho está vazio.</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-subtotal"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div>
-            <button class="button button-primary checkout-button" id="checkout-button" type="button" disabled>Preparar pedido</button>
-            <p class="cart-note">Demonstração de loja: nenhum pagamento é processado neste site.</p>
-        </div>
+        <div class="cart-header"><div><p class="eyebrow">Sua seleção</p><h2 id="cart-title">Carrinho</h2></div><button class="icon-button" id="close-cart" aria-label="Fechar carrinho">×</button></div>
+        <div class="cart-items" id="cart-items"><p class="cart-empty">Seu carrinho está vazio.</p></div>
+        <div class="cart-footer"><div class="cart-subtotal"><span>Total</span><strong id="cart-total">R$ 0,00</strong></div><button class="button button-primary checkout-button" id="checkout-button" disabled>Finalizar pelo WhatsApp</button><p class="cart-note">O pedido será enviado pelo WhatsApp para confirmar disponibilidade, entrega e pagamento.</p></div>
     </aside>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
